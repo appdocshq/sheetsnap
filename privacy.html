@@ -1,0 +1,247 @@
+<!doctype html>
+<!--
+  Sheetsnap — Privacy Policy.
+
+  DRAFT, AND NOT LEGAL ADVICE. Every factual claim below was written against
+  what this codebase actually does, and each one is checkable:
+
+    * the data inventory matches supabase/migrations/*.sql column for column
+    * "no name, no email" is AuthStore.configure's `requestedScopes = []`
+    * "discarded when the response returns" is supabase/functions/extract
+    * the collected types match sheetsnap/Resources/PrivacyInfo.xcprivacy, which
+      must in turn match the App Store privacy labels or the build is rejected
+
+  What it is NOT is a lawyer's work, and it is not tailored to your
+  jurisdiction. Have somebody qualified read it before you publish, especially
+  the UK/EU sections if you sell there.
+
+  IF YOU CHANGE THE APP, CHANGE THIS PAGE. Adding an SDK, a column that could
+  hold receipt content, or a new sub-processor changes this page, the privacy
+  manifest, and the App Store privacy labels, all on the same day.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Sheetsnap</title>
+<meta name="description" content="What Sheetsnap does with your receipts: they stay on your phone.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="brand" href="index.html">Sheetsnap<span>.</span></a>
+    <h1>Privacy Policy</h1>
+    <p class="dek">Last updated 12 September 2026</p>
+    <div class="rule"></div>
+    <nav class="pages">
+      <a href="index.html">Home</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<p class="lede">Your receipts stay on your phone. To read one into your columns,
+its text and a smaller copy of the photo are sent to be processed and then
+thrown away. No merchant, no amount and no image is ever stored on our
+servers.</p>
+
+<!-- No postal address here, deliberately. GDPR Article 13 wants the controller's
+     identity and *contact details*, and an email address that is actually read
+     satisfies that — so a sole trader is not obliged to publish a home address
+     to the open internet. Apple's minimum EULA terms do require a postal
+     address, which is why the unpublished custom EULA draft at
+     docs/terms-eula-draft.html has one and this page does not. -->
+<p>This policy explains it properly. It covers the Sheetsnap iOS app and this
+website. Sheetsnap is made by <strong>Asieuzzaman Wasir</strong>
+(&ldquo;we&rdquo;, &ldquo;us&rdquo;), who is the data controller and can be
+reached at the address in section&nbsp;9.</p>
+
+<h2>1. What stays on your device</h2>
+
+<p>These never leave your phone, and we have no copy of them:</p>
+
+<ul>
+  <li><strong>Your receipt photographs</strong> and their thumbnails.</li>
+  <li><strong>Everything read from a receipt</strong> &mdash; merchant, date,
+      amount, category, and every other column you defined.</li>
+  <li><strong>Your schemas</strong> &mdash; the column names, types and hints
+      you wrote.</li>
+  <li><strong>Your exported files</strong>, until you choose to share them
+      somewhere.</li>
+</ul>
+
+<p>They live in the app's own storage on the device, protected by iOS file
+encryption. They are not in iCloud and they are not backed up to us. If you
+delete the app, they are gone.</p>
+
+<h2>2. What is sent, and for how long it exists</h2>
+
+<h3>Reading a receipt</h3>
+
+<p>When you ask Sheetsnap to read a receipt for you, two things are sent to our
+server: <strong>the text our on-device scanner recognised</strong>, and
+<strong>a downscaled copy of the photograph</strong> (at most 1400 pixels on the
+long edge). The second is only sent when the text alone was not good enough.</p>
+
+<p>Our server passes them to our AI provider, gets the values back, returns them
+to your phone, and <strong>discards both</strong>. They are not written to our
+database, because there is no column in our database that could hold them.</p>
+
+<h3>What we keep about that</h3>
+
+<p>One row per receipt read, holding <em>numbers about the work</em> and never
+the work itself. In full:</p>
+
+<table>
+<tr><th>Kept</th><th>Why</th></tr>
+<tr><td>Your account ID, and a timestamp</td><td>To count your monthly allowance</td></tr>
+<tr><td>Whether it succeeded, and a short failure code such as <code>decode_failed</code></td><td>To find and fix faults. Never a message from the model, which could quote your receipt</td></tr>
+<tr><td>How long it took, in milliseconds</td><td>To keep the app fast</td></tr>
+<tr><td>How many columns you asked for, and how many came back uncertain</td><td>To tell whether the app is getting better or worse</td></tr>
+<tr><td>Which models ran, how many tokens each used, and the estimated cost</td><td>To know whether the service pays for itself</td></tr>
+<tr><td>Scan quality measurements: the scanner's mean confidence, and character and line counts</td><td>To decide which receipts need the more expensive model</td></tr>
+<tr><td>The identifier your device gave that receipt</td><td>So a retry of the same receipt is not counted twice</td></tr>
+</table>
+
+<p>That identifier is a random number generated on your phone. It is not
+derived from the receipt and it means nothing without your device.</p>
+
+<h3>Your account</h3>
+
+<p>Signing in creates one row holding an account ID, the opaque identifier Apple
+gives us, when it was created, and which plan you are on. <strong>There is no
+column for your name and none for your email address</strong> &mdash; Sheetsnap
+asks Apple for neither when you sign in, so we never receive them.</p>
+
+<h3>Your subscription</h3>
+
+<p>If you buy a plan, Apple handles the payment. We never see your card, your
+billing address or your Apple ID. Our subscription provider tells us which plan
+is active so the app can lift your limits, and our server asks it directly
+rather than trusting the app.</p>
+
+<h2>3. When an account is needed, and when it is not</h2>
+
+<p>You are asked to sign in at exactly one moment: the first time a receipt
+would be sent to us to be read. Everything else works signed out &mdash;
+photographing receipts, on-device text recognition, typing values in, your
+columns, the library, search, filters, and all three export formats.</p>
+
+<p>Sign in with Apple is the only way to create an account. There is no
+password, because we never have one.</p>
+
+<h2>4. Who else is involved</h2>
+
+<table>
+<tr><th>Who</th><th>What they do</th><th>What they see</th></tr>
+<tr><td>Apple</td><td>Sign in with Apple, the App Store, and subscription billing</td><td>Your Apple account and your payment details. We see none of it</td></tr>
+<tr><td>Supabase</td><td>Hosts our database and the server code that reads receipts</td><td>The account rows and usage numbers in section 2</td></tr>
+<tr><td>Anthropic</td><td>The AI models that read a receipt</td><td>The receipt text and downscaled image, for the seconds it takes to answer. Processed under commercial API terms that do not permit using it to train models</td></tr>
+<tr><td>RevenueCat</td><td>Tracks which subscription is active</td><td>Your account ID and your purchase history</td></tr>
+</table>
+
+<p>That is the complete list. <strong>There is no analytics service, no crash
+reporting service, no advertising network and no data broker in this version of
+Sheetsnap.</strong> Nothing on this website tracks you either &mdash; no
+cookies, no scripts, no fonts loaded from anywhere else.</p>
+
+<h2>5. What we never do</h2>
+
+<ul>
+  <li><strong>We do not sell your data,</strong> and we do not share it for
+      advertising. There is nothing here to sell.</li>
+  <li><strong>We do not track you across other apps or websites.</strong> The
+      app does not ask for tracking permission because it has nothing to ask
+      for.</li>
+  <li><strong>We do not read your receipts.</strong> Nobody working on Sheetsnap
+      can look up what you bought, because it is not stored anywhere we can
+      reach.</li>
+  <li><strong>We do not use your receipts to train AI models.</strong></li>
+  <li><strong>We do not access anything else on your phone.</strong> The camera
+      is used when you tap the camera button; the photo library is read only for
+      the images you pick. Nothing else in your library is touched.</li>
+</ul>
+
+<h2>6. How long we keep things</h2>
+
+<ul>
+  <li><strong>Receipt text and images:</strong> the seconds it takes to answer.
+      Never stored.</li>
+  <li><strong>Usage counters:</strong> for the monthly period they belong to,
+      and kept afterwards as a history of what you used.</li>
+  <li><strong>Extraction records</strong> (the numbers in section 2): retained
+      while your account exists.</li>
+  <li><strong>Your account:</strong> until you delete it.</li>
+</ul>
+
+<h2>7. Deleting everything</h2>
+
+<p>In the app: <strong>Settings &rsaquo; Delete account</strong>. Two taps.</p>
+
+<p>It deletes your account row, your usage counters and your extraction records
+from our servers outright &mdash; not marked hidden, deleted &mdash; and then
+wipes every receipt, photograph and schema from the device in the same step.
+Nothing is archived and there is nothing to restore. If the server step fails
+your account is left untouched so you can try again, rather than half-deleted.</p>
+
+<p>Deleting the app without deleting the account removes everything on the
+device but leaves the account row. Sign in again on any device to delete it, or
+write to us at the address in section 9 and we will do it.</p>
+
+<h2>8. Your rights</h2>
+
+<p>Depending on where you live, you have the right to ask what we hold about
+you, to get a copy, to correct it, to have it deleted, to restrict or object to
+how it is used, and to complain to your data protection regulator.</p>
+
+<p>Two of those are already buttons: deletion is
+<strong>Settings &rsaquo; Delete account</strong>, and the only meaningful thing
+we hold about you is your usage, which the app shows you in
+<strong>Settings &rsaquo; Plan</strong>. For anything else, write to us.</p>
+
+<p>Our legal basis for the small amount we do hold is performing the contract
+you entered into when you started using the app &mdash; the monthly allowance
+cannot be counted without counting it &mdash; and our legitimate interest in
+keeping the service working and affordable.</p>
+
+<h2>9. Contact</h2>
+
+<p>Write to <a href="mailto:appsupport.get@gmail.com">appsupport.get@gmail.com</a>.
+A person reads it. See the <a href="support.html">support page</a> for what to
+include.</p>
+
+<h2>10. Children</h2>
+
+<p>Sheetsnap is a tool for bookkeeping and is not directed at children. We do
+not knowingly collect anything from anyone under 13, and there is nothing in the
+app that would identify a user's age.</p>
+
+<h2>11. International transfers</h2>
+
+<p>Our servers and our providers operate in the United States and the European
+Union. Where data is transferred out of the UK or the EEA, it is done under the
+standard contractual clauses those providers offer.</p>
+
+<h2>12. Changes</h2>
+
+<p>If this policy changes in a way that matters &mdash; a new provider, a new
+kind of data, a change to what is retained &mdash; the date at the top changes
+and the app's release notes say so. Material changes will not be applied
+retroactively to data already collected.</p>
+
+<footer>
+  <p><a href="index.html">Sheetsnap</a> &middot;
+     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a> &middot;
+     <a href="support.html">Support</a></p>
+  <p>&copy; 2026 Asieuzzaman Wasir</p>
+</footer>
+
+</main>
+</body>
+</html>
