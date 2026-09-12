@@ -1,0 +1,169 @@
+<!doctype html>
+<!--
+  Sheetsnap — Support.
+
+  This is the page that goes in App Store Connect's required "Support URL"
+  field, so it has to do two jobs: answer the common questions without anybody
+  having to write in, and make it obvious how to write in when it does not.
+
+  The FAQ is the same ten answers as the app's own Settings › FAQ screen
+  (sheetsnap/Features/Settings/FAQView.swift). KEEP THEM IN STEP. An answer that
+  is true here and stale in the app is worse than not having this page — the
+  in-app one is what people read first.
+
+  THE ADDRESS BELOW HAS TO EXIST AND HAS TO BE READ. Apple checks that the
+  Support URL resolves, and a reviewer may write to it. It is also what real
+  users will use. Create the mailbox before you publish this page, or change it.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Sheetsnap</title>
+<meta name="description" content="Help with Sheetsnap: common questions, and how to reach a person.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="brand" href="index.html">Sheetsnap<span>.</span></a>
+    <h1>Support</h1>
+    <p class="dek">A person reads every message.</p>
+    <div class="rule"></div>
+    <nav class="pages">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      <a href="support.html" aria-current="page">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="card">
+  <h3>Write to us</h3>
+  <p><a href="mailto:appsupport.get@gmail.com">appsupport.get@gmail.com</a></p>
+  <p class="meta">Usually answered within two working days. Sheetsnap is made by
+  one person, so it will be that person &mdash; but it will be a person.</p>
+</div>
+
+<p>Most things are answered below. If you are writing about something going
+wrong, the three things that help most are: <strong>which iPhone and which iOS
+version</strong>, <strong>what you expected to happen</strong>, and
+<strong>what happened instead</strong>. A screenshot is worth several
+paragraphs.</p>
+
+<p class="lede">Please do not send us a receipt, an export or a screenshot with
+real amounts in it unless we ask. We do not store your receipts and we would
+rather not receive them by email either.</p>
+
+<h2>The things worth knowing</h2>
+
+<h3>What counts against my monthly scans?</h3>
+<p>Only having a receipt read <em>for</em> you. Photographing one, reading its
+text on your own device, typing a receipt in by hand, editing, and every export
+are unlimited on every plan &mdash; including free.</p>
+
+<h3>A receipt failed to read. Was I charged for it?</h3>
+<p>No. If nothing usable came back, the scan is put back on your allowance,
+however many attempts it took. You still get the photo, the text we could read,
+and your columns to type into.</p>
+
+<h3>Why does reading a receipt need an account?</h3>
+<p>Because the monthly allowance has to belong to somebody. It is Sign in with
+Apple only, and we do not ask Apple for your name or your email &mdash; there is
+nowhere in our database to put either.</p>
+
+<h3>Are my receipts uploaded?</h3>
+<p>The scanned text and a downscaled copy of the photo are sent to be read, then
+discarded. Nothing off a receipt is stored on our server &mdash; no merchant, no
+amount, no image. Your receipts live on your device. The
+<a href="privacy.html">Privacy Policy</a> lists exactly what is kept, which is
+counts and timings.</p>
+
+<h3>Why is a number in my export text instead of a number?</h3>
+<p>It should not be. CSV and TSV deliberately write bare numbers and
+<code>yyyy-MM-dd</code> dates with no currency symbol and no thousands
+separator, because a symbol makes the column text and it will not sum. XLSX
+carries real dates and real currency formatting instead.
+<strong>If a column will not add up, tell us which one</strong> &mdash; that is a
+bug and we want it.</p>
+
+<h3>Can I change my columns after I have captured receipts?</h3>
+<p>Yes. Editing a set of columns never reshapes receipts you have already
+captured &mdash; each one keeps the columns it was captured with, so an old
+export still looks the way it did.</p>
+
+<h3>There is no signal. Is my receipt lost?</h3>
+<p>No. It is saved with its photo and its text, and it gets its columns straight
+away so you can type into it. It is read for you automatically the next time you
+are online.</p>
+
+<h3>Is there a free trial?</h3>
+<p>No, deliberately. The free tier <em>is</em> the trial: one set of columns and
+15 scans a month, for good, with no card and no expiry. Nothing is charged
+unless you buy a plan on the upgrade screen.</p>
+
+<h3>How do I cancel?</h3>
+<p><strong>Settings &rsaquo; Subscription &rsaquo; Manage subscription</strong>,
+which opens your Apple Account's own subscription list. Cancelling at least a
+day before the renewal date stops the next charge. Cancellations and refunds are
+handled by Apple, not by us &mdash; refunds at
+<a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+<h3>What happens to my receipts if I stop paying?</h3>
+<p>Nothing. They are on your device, they keep exporting, and you keep every set
+of columns you made &mdash; you just go back to 15 reads a month and cannot
+create new sets beyond the first.</p>
+
+<h2>Other things people ask</h2>
+
+<h3>I bought a subscription and the app still says I am on free.</h3>
+<p>Open the upgrade screen and tap <strong>Restore Purchases</strong>, or
+Settings &rsaquo; Subscription &rsaquo; Restore purchases. If you bought
+Sheetsnap with a different Apple Account, sign into that one first. If it still
+does not appear, write to us with the date of purchase &mdash; not your receipt
+from Apple, just the date.</p>
+
+<h3>How do I get my data out?</h3>
+<p>The share button at the top of the Receipts tab. CSV and XLSX write a file
+you can send anywhere; <strong>Copy as TSV</strong> puts it on the clipboard to
+paste straight into a spreadsheet. The columns are yours, in your order, and
+nothing is added.</p>
+
+<h3>How do I delete my account?</h3>
+<p><strong>Settings &rsaquo; Delete account</strong>. It deletes the server-side
+account outright and wipes every receipt, photograph and set of columns from the
+device in the same step. Nothing is archived and nothing can be restored
+afterwards, by you or by us &mdash; so export first if you want to keep
+anything.</p>
+
+<h3>Can I use Sheetsnap on my iPad or Mac?</h3>
+<p>Not yet. Sheetsnap is built for iPhone, in portrait, and that is deliberate
+for version 1: a receipt is photographed with a phone.</p>
+
+<h3>I lost my phone. Can you send me my receipts?</h3>
+<p>No, and this is the one that is worth understanding before it happens.
+Receipts are stored on your device and <strong>we have no copy of them</strong>,
+which is the same fact as &ldquo;we cannot read what you bought&rdquo;. There is
+nothing for us to send. Export regularly, and keep an iPhone backup.</p>
+
+<h3>Something is wrong with what it read.</h3>
+<p>Correct it on the review screen &mdash; tap the field and type. If it is
+consistently wrong in the same way, tell us: which column, what it should have
+said, and what it said instead. Do not send the receipt itself. A
+plain-English <strong>hint</strong> on a column (&ldquo;one of: Materials, Fuel,
+Meals&rdquo;) is often the fix, and it applies from then on.</p>
+
+<footer>
+  <p><a href="index.html">Sheetsnap</a> &middot;
+     <a href="privacy.html">Privacy</a> &middot;
+     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></p>
+  <p>&copy; 2026 Asieuzzaman Wasir</p>
+</footer>
+
+</main>
+</body>
+</html>

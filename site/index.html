@@ -1,0 +1,118 @@
+<!doctype html>
+<!--
+  Sheetsnap — the landing page for the three pages App Store Connect asks for.
+
+  Deliberately not a marketing site. Its job is to be a real page at the root of
+  the domain so that the Privacy, Terms and Support links go somewhere that
+  looks like it belongs to a real product rather than three orphaned documents.
+  If you later build an actual marketing site, replace this file and keep the
+  other two.
+
+  "Terms of Use" links to Apple's standard EULA, which is what actually governs
+  the app — the same URL AppConfig falls back to when TERMS_HOST is unset, so
+  the website and the app's paywall point at the same document. A custom EULA is
+  drafted at docs/terms-eula-draft.html and is deliberately NOT published; see
+  site/README.md before you change that.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sheetsnap — receipts land in your columns</title>
+<meta name="description" content="Define the columns your spreadsheet already has. Photograph a receipt. It arrives already shaped for your sheet.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="brand" href="index.html">Sheetsnap<span>.</span></a>
+    <h1>Receipts land in <em>your</em> columns.</h1>
+    <p class="dek">Define the columns your spreadsheet already has. Photograph a
+    receipt. It arrives already shaped for your sheet.</p>
+    <div class="rule"></div>
+    <nav class="pages">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<p>Every other receipt scanner decides what a receipt is. Sheetsnap asks you.
+Paste the top row of a sheet you already use and it reads your headings
+verbatim &mdash; Date, Vendor, Amount, Category, Paid?, or whatever you actually
+call them. Nothing is ever added, renamed or reordered. The export is the
+promise.</p>
+
+<div class="tiles">
+  <a class="tile" href="privacy.html">
+    <strong>Privacy</strong>
+    <span>Your receipts stay on your phone. What is sent, and for how long it
+    exists.</span>
+  </a>
+  <a class="tile" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">
+    <strong>Terms of Use</strong>
+    <span>Apple's standard licensed application end user licence agreement
+    applies to Sheetsnap.</span>
+  </a>
+  <a class="tile" href="support.html">
+    <strong>Support</strong>
+    <span>The common questions, and how to reach a person.</span>
+  </a>
+</div>
+
+<h2>The three things that make it different</h2>
+
+<h3>Your columns are the fixed point</h3>
+<p>A set of columns per client, per property, per business &mdash; each with its
+own names and its own plain-English hints. Editing one never reshapes receipts
+you have already captured, so an old export still looks the way it did.</p>
+
+<h3>See where every number came from</h3>
+<p>Tap a field and the receipt dims to spotlight the exact place that value was
+read from. Anything the model was unsure of is underlined in amber, so you check
+the three that matter instead of re-reading all eight.</p>
+
+<h3>Works with no signal</h3>
+<p>Capture, on-device text recognition, typing values in by hand, the library,
+the filters and every export format work offline and signed out. A receipt
+captured with no signal is saved with its photo, gets its columns immediately so
+you can type into it, and is read for you automatically the next time you are
+online.</p>
+
+<h2>Pricing, plainly</h2>
+
+<p><strong>Free:</strong> one set of columns and 15 receipts read a month, for
+good. No card, no expiry, no trial to forget to cancel &mdash; the free tier is
+the trial.</p>
+
+<p><strong>Pro</strong> ($7.99 a month or $49.99 a year): unlimited column sets,
+200 receipts read a month, line items.
+<strong>Business</strong> ($119.99 a year): everything in Pro, 600 receipts read
+a month.</p>
+
+<p>Photographing receipts, reading their text on your device, typing them in and
+exporting are unlimited on every plan, including free. Only having a receipt
+read for you counts against the monthly number, and a scan that fails is put
+back on your allowance.</p>
+
+<!-- Once the app is live, replace this line with the App Store badge or a
+     plain link: <a href="https://apps.apple.com/app/id{APP_STORE_APP_ID}">Download
+     on the App Store</a>. The id is the number in the App Store Connect URL,
+     the same one that goes in APP_STORE_APP_ID in Config/Secrets.xcconfig. -->
+<p class="meta">Sheetsnap is for iPhone, iOS 17 and later.</p>
+
+<footer>
+  <p><a href="privacy.html">Privacy</a> &middot;
+     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a> &middot;
+     <a href="support.html">Support</a></p>
+  <p>&copy; 2026 Asieuzzaman Wasir</p>
+</footer>
+
+</main>
+</body>
+</html>

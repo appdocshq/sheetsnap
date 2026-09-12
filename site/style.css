@@ -1,0 +1,270 @@
+/* Sheetsnap's public pages.
+ *
+ * The palette is the app's own (docs/02-APP-SHEETSNAP.md §6) so that somebody
+ * who taps "Privacy" inside the app and lands here does not feel handed off to
+ * a stranger's website. Same green, same mint, same paper, same ink.
+ *
+ * No fonts, no scripts, no analytics, no cookies, no external requests of any
+ * kind. A privacy policy that loads a tracker is a joke that writes itself, and
+ * these pages are also the answer to "does this site set cookies?" — it does
+ * not, which is why there is no cookie banner and no cookie section.
+ */
+
+:root {
+  --green: #1b4d3e;
+  --green-deep: #113329;
+  --mint: #4ade9b;
+  --paper: #fafaf8;
+  --surface: #ffffff;
+  --ink: #12130f;
+  --ink-soft: #4a4f48;
+  --border: #e3e5df;
+  --todo-bg: #ffe8b3;
+  --todo-ink: #7a4f00;
+
+  /* The header is the app's green in BOTH themes, so what sits on it cannot be
+   * a token that flips. `--paper` becomes near-black in dark mode, and using it
+   * here put dark text on a dark green band — legible enough to miss in a diff
+   * and not legible enough to read. These two never change. */
+  --on-green: #fafaf8;
+  --on-green-soft: #cfe3d8;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1411;
+    --surface: #171d19;
+    --ink: #f2f4f0;
+    --ink-soft: #a8b0a8;
+    --border: #2a322c;
+    --todo-bg: #4a3a10;
+    --todo-ink: #ffd98a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Header ------------------------------------------------------------------ */
+
+header {
+  background: linear-gradient(160deg, var(--green), var(--green-deep));
+  color: var(--on-green);
+  padding: 2.5rem 1.25rem 2rem;
+}
+
+header .inner { max-width: 46rem; margin: 0 auto; }
+
+header .brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--on-green);
+  text-decoration: none;
+}
+
+header .brand span { color: var(--mint); }
+
+header h1 {
+  margin: 1.25rem 0 0.35rem;
+  font-size: clamp(1.7rem, 5vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+header p.dek {
+  margin: 0;
+  color: var(--on-green-soft);
+  font-size: 1rem;
+}
+
+header .rule {
+  width: 3.5rem;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--mint);
+  margin-top: 1.25rem;
+}
+
+/* Body -------------------------------------------------------------------- */
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+
+h2 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+h2:first-of-type { margin-top: 0.5rem; }
+
+h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+p, li { color: var(--ink); }
+
+a { color: #14705a; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) { a { color: var(--mint); } }
+
+ul, ol { padding-left: 1.35rem; }
+li { margin: 0.35rem 0; }
+
+strong { font-weight: 600; }
+
+/* A claim worth reading twice. Used sparingly — the specific promises. */
+.lede {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  border-left: 3px solid var(--mint);
+  padding: 0.15rem 0 0.15rem 1rem;
+  margin: 1.5rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  background: var(--surface);
+  white-space: nowrap;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.card h3 { margin-top: 0; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+.meta {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* The one thing that must not ship unnoticed.
+ *
+ * Every value only the owner of this app can supply is wrapped in this, and it
+ * is loud on purpose: a privacy policy published with "[YOUR LEGAL NAME]" still
+ * in it is worse than no policy, and a quiet placeholder is one you scroll past.
+ * site/README.md lists every one of them and how to replace them in a line. */
+.todo {
+  background: var(--todo-bg);
+  color: var(--todo-ink);
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Navigation between the three pages ------------------------------------- */
+
+nav.pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+nav.pages a {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 250, 248, 0.3);
+  color: var(--on-green);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+nav.pages a:hover { background: rgba(250, 250, 248, 0.12); }
+nav.pages a[aria-current="page"] {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: var(--green-deep);
+  font-weight: 600;
+}
+
+/* Index page tiles -------------------------------------------------------- */
+
+.tiles {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1.5rem 0;
+}
+
+a.tile {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+a.tile:hover { border-color: var(--mint); }
+a.tile strong { display: block; font-size: 1.05rem; margin-bottom: 0.25rem; }
+a.tile span { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* Footer ------------------------------------------------------------------ */
+
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+footer a { color: inherit; }
+footer p { margin: 0.35rem 0; }
