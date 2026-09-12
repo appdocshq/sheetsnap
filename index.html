@@ -6,13 +6,12 @@
   the domain so that the Privacy, Terms and Support links go somewhere that
   looks like it belongs to a real product rather than three orphaned documents.
   If you later build an actual marketing site, replace this file and keep the
-  other two.
+  other three.
 
-  "Terms of Use" links to Apple's standard EULA, which is what actually governs
-  the app — the same URL AppConfig falls back to when TERMS_HOST is unset, so
-  the website and the app's paywall point at the same document. A custom EULA is
-  drafted at docs/terms-eula-draft.html and is deliberately NOT published; see
-  site/README.md before you change that.
+  Every footer links Apple's standard EULA as well as our own Terms. That is not
+  redundancy: Apple's EULA is what actually licenses the app, terms.html is the
+  layer it does not cover (subscriptions, accuracy, liability), and a reader
+  should be able to reach either in one tap from anywhere.
 -->
 <html lang="en">
 <head>
@@ -34,7 +33,7 @@
     <nav class="pages">
       <a href="index.html" aria-current="page">Home</a>
       <a href="privacy.html">Privacy</a>
-      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      <a href="terms.html">Terms</a>
       <a href="support.html">Support</a>
     </nav>
   </div>
@@ -54,10 +53,10 @@ promise.</p>
     <span>Your receipts stay on your phone. What is sent, and for how long it
     exists.</span>
   </a>
-  <a class="tile" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">
-    <strong>Terms of Use</strong>
-    <span>Apple's standard licensed application end user licence agreement
-    applies to Sheetsnap.</span>
+  <a class="tile" href="terms.html">
+    <strong>Terms &amp; Conditions</strong>
+    <span>The licence, the subscriptions, and what the app does and does not
+    promise.</span>
   </a>
   <a class="tile" href="support.html">
     <strong>Support</strong>
@@ -108,8 +107,10 @@ back on your allowance.</p>
 
 <footer>
   <p><a href="privacy.html">Privacy</a> &middot;
-     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a> &middot;
+     <a href="terms.html">Terms</a> &middot;
      <a href="support.html">Support</a></p>
+  <p><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple's
+     standard EULA</a></p>
   <p>&copy; 2026 Asieuzzaman Wasir</p>
 </footer>
 
